@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roblox Studio - Fake</title>
+
+<style>
+    body {
+        margin: 0;
+        background-color: white;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    /* ================= TELA DE LOADING ================= */
+    .loading-screen {
+        position: fixed;
+        inset: 0;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 20;
+    }
+
+    .load-box {
+        position: relative;
+        width: 620px;
+        height: 380px;
+        background-image: url('https://i.imgur.com/dVWtpBf.png');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .logo {
+        position: absolute;
+        top: 55px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 110px;
+    }
+
+    .installing {
+        position: absolute;
+        top: 205px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 18px;
+        opacity: 0.9;
+    }
+
+    .loading-area {
+        position: absolute;
+        top: 270px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 420px;
+        height: 25px;
+        background-color: #7d7d7d;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .loading-fill {
+        width: 0%;
+        height: 100%;
+        background-image: url("https://i.imgur.com/1TRmrDi.png");
+        background-size: 100% 100%;
+        animation: loadAnim 4s linear forwards;
+    }
+
+    @keyframes loadAnim {
+        from { width: 0%; }
+        to { width: 100%; }
+    }
+
+    .cancel {
+        position: absolute;
+        top: 305px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        opacity: 0.85;
+    }
+
+    /* ================= INTERFACE ================= */
+    .interface {
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        background-color: white; /* FUNDO BRANCO */
+        padding: 25px;
+        box-sizing: border-box;
+    }
+
+    /* ÍCONE DO STUDIO */
+    .studio-logo {
+        width: 155px;
+        margin-bottom: 20px;
+    }
+
+    /* Caixa Create New */
+    .create-box {
+        width: 90%;
+        max-width: 550px;
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0px 0px 8px rgba(0,0,0,0.15);
+    }
+
+    .create-title {
+        font-size: 26px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .gray-box {
+        width: 100%;
+        height: 180px;
+        background: #d1d1d1;
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    .create-btn {
+        background: #0097ff;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .create-btn:hover {
+        background: #0080d8;
+    }
+</style>
+</head>
+<body>
+
+<!-- ==================== LOADING ==================== -->
+<div class="loading-screen">
+    <div class="load-box">
+        <img class="logo" src="https://i.imgur.com/KTzjwGG.png">
+        <div class="installing">Installing Roblox...</div>
+
+        <div class="loading-area">
+            <div class="loading-fill"></div>
+        </div>
+
+        <div class="cancel">Cancelar</div>
+    </div>
+</div>
+
+<!-- ==================== INTERFACE ==================== -->
+<div class="interface">
+    <!-- Ícone do Roblox Studio no canto -->
+    <img class="studio-logo" src="https://i.imgur.com/KTzjwGG.png">
+
+    <div class="create-box">
+        <div class="create-title">Create New</div>
+
+        <div class="gray-box"></div>
+
+        <button class="create-btn" onclick="window.location.href='https://ro.blox.com/Ebh5?is_retargeting=false&pid=experiencestart_mobileweb&af_dp=https%3A%2F%2Fwww.roblox.com%2Fgames%2Fstart%3Fplaceid%3D10959918411%26joinAttemptId%3Da5e1cba5-ee04-44ba-a33d-0a04eb877199&af_web_dp=https%3A%2F%2Fwww.roblox.com%2Fgames%2Fstart%3Fplaceid%3D10959918411%26joinAttemptId%3Da5e1cba5-ee04-44ba-a33d-0a04eb877199&deep_link_value=https%3A%2F%2Fwww.roblox.com%2Fgames%2Fstart%3Fplaceid%3D10959918411%26joinAttemptId%3Da5e1cba5-ee04-44ba-a33d-0a04eb877199'">
+            Create New
+        </button>
+    </div>
+</div>
+
+<script>
+    // Quando a animação da barra termina, troca para a interface
+    setTimeout(() => {
+        document.querySelector(".loading-screen").style.display = "none";
+        document.querySelector(".interface").style.display = "block";
+    }, 4200);
+</script>
+
+</body>
+</html>
